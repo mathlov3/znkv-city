@@ -6,14 +6,19 @@
 .hero {
   position: relative;
   padding: 40px 24px;
-  min-height: 300px;
+  height: 700px;
+  background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%))
 }
 
 .hero h1 {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  z-index: 1;
+  margin: 68px;
+  padding: 31px;
   color: var(--background-color);
+  background-color: rgba(19 19 19 / 75%);
+  position: relative;
+  width: fit-content;
 }
 
 .hero picture {
@@ -33,5 +38,6 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+    height: 300px;
   }
 }
