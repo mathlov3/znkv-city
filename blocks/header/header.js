@@ -4,6 +4,8 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
+const getLogoWrapper = () => '<div class="logo-wrapper"><img data-icon-name="zinkiv-logo" src="/icons/zinkiv-logo.svg" alt="" loading="lazy"></div>';
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -57,6 +59,9 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
+  if (!sections) {
+    return;
+  }
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
@@ -191,6 +196,7 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
+  navBrand.innerHTML = getLogoWrapper();
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
